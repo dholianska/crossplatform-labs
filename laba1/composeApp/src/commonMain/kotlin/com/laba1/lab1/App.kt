@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
+import co.touchlab.kermit.Logger
 
 import lab1.composeapp.generated.resources.Res
 import lab1.composeapp.generated.resources.audiowide_regular
@@ -38,7 +39,10 @@ fun App() {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Button(onClick = { showContent = !showContent }) {
+            Button(onClick = {
+                showContent = !showContent
+                Logger.i { "Logger test." }
+            }) {
                 Text("Click me!")
             }
             AnimatedVisibility(showContent) {
