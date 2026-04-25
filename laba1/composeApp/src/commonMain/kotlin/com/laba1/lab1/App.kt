@@ -54,12 +54,7 @@ fun App() {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
                     Text(
                         text = "Current time: $currentTime",
-                        style = TextStyle(
-                            fontSize = 28.sp,
-                            fontFamily = FontFamily(
-                                Font(Res.font.cookie_regular)
-                            ),
-                        )
+                        style = MaterialTheme.typography.bodyLarge.copy(fontSize = 28.sp)
                     )
                 }
             }
