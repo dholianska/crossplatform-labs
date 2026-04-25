@@ -10,54 +10,26 @@ import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
 import co.touchlab.kermit.Logger
-
 import lab1.composeapp.generated.resources.Res
-import lab1.composeapp.generated.resources.audiowide_regular
-import lab1.composeapp.generated.resources.cookie_regular
 import lab1.composeapp.generated.resources.compose_multiplatform
-import org.jetbrains.compose.resources.Font
+
+
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.*
+import com.laba1.lab1.ui.screens.AppNavigation
 import com.laba1.lab1.ui.theme.AppTheme
+
+
 
 @Composable
 @Preview
 fun App() {
-    AppTheme  {
-        var showContent by remember { mutableStateOf(false) }
-        Column(
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Button(onClick = {
-                showContent = !showContent
-                Logger.i { "Logger test." }
-            }) {
-                Text("Click me!")
-            }
-            AnimatedVisibility(showContent) {
-                val currentTime = remember { TimeZoneHelperImpl().currentTime() }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text(
-                        text = "Current time: $currentTime",
-                        style = MaterialTheme.typography.bodyLarge.copy(fontSize = 28.sp)
-                    )
-                }
-            }
-        }
+    AppTheme {
+        AppNavigation()
     }
 }
